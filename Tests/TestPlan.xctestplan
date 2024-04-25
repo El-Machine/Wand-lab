@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "D88E04D5-664A-4424-9DF9-D06EACB44998",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Wand.xcodeproj",
+        "identifier" : "pipe::PipeTests",
+        "name" : "WandTests"
+      }
+    }
+  ],
+  "version" : 1
+}
