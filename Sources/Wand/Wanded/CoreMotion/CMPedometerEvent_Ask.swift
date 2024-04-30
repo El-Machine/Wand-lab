@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(CoreMotion)
 import CoreMotion.CMPedometer
 
 /// Ask
@@ -31,6 +32,7 @@ import CoreMotion.CMPedometer
 ///
 @available(iOS 10.0, watchOS 3.0, *)
 @available(macOS, unavailable)
+@available(visionOS, unavailable)
 extension CMPedometerEvent: AskingNil, Wanded {
 
     @inline(__always)
@@ -65,3 +67,5 @@ extension CMPedometerEvent: AskingNil, Wanded {
     }
 
 }
+
+#endif

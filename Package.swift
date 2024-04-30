@@ -27,21 +27,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "Wand",
+    name: "Wand-Tools",
     defaultLocalization: "ru",
     platforms: [
-        .iOS(.v11), .macOS(.v10_15), .watchOS(.v2), .tvOS(.v9)
+        .iOS(.v14), .macOS(.v11), .watchOS(.v4), .tvOS(.v12)
     ],
     products: [
         .library(
-            name: "Wand",
-            targets: ["Wand"]),
+            name: "Wand-Tools",
+            targets: ["Wand-Tools"]),
+    ],
+    dependencies: [
+        .package(name: "Wand", url: "http://github.com/El-Machine/Wand.git", from: "0.1")
     ],
     targets: [
         .target(
-            name: "Wand"),
+            name: "Wand-Tools",
+            dependencies: ["Wand"]),
         .testTarget(
             name: "WandTests",
-            dependencies: ["Wand"]),
+            dependencies: ["Wand", "Wand-Tools"]),
+        .testTarget(
+            name: "WatchPlayTests",
+            dependencies: ["Wand", "Wand-Tools"]),
     ]
 )

@@ -21,12 +21,14 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(CoreMotion)
 import CoreMotion.CMPedometer
 
 /// Obtain
 ///
 /// let pedometer: CMPedometer = nil|
 ///
+@available(visionOS, unavailable)
 extension CMPedometer: Obtain {
 
     @inline(__always)
@@ -35,3 +37,5 @@ extension CMPedometer: Obtain {
     }
      
 }
+
+#endif

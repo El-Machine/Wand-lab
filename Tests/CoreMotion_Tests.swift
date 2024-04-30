@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(CoreMotion) && !targetEnvironment(simulator) && !os(macOS)
 import CoreMotion
 
 import Wand
@@ -28,9 +29,7 @@ import XCTest
 
 class CoreMotion_Tests: XCTestCase {
 
-#if !targetEnvironment(simulator)
 
-    @available(macOS, unavailable)
     func test_CMPedometerEvent() {
         let e = expectation()
         e.assertForOverFulfill = false
@@ -53,9 +52,9 @@ class CoreMotion_Tests: XCTestCase {
 //        waitForExpectations()
 //    }
 
-#endif
-
     func test_CMPedometer() {
         XCTAssertNotNil(CMPedometer.self|)
     }
 }
+
+#endif

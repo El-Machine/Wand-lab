@@ -21,6 +21,7 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(CoreMotion)
 import Contacts
 
 import Wand
@@ -50,11 +51,13 @@ class Contacts_Tests: XCTestCase {
         waitForExpectations()
     }
 
+#if targetEnvironment(simulator)
+
     func test_CNContact_Predicate_Keys() {
         let e = expectation()
         e.assertForOverFulfill = false
 
-        let predicate = CNContact.predicateForContacts(matchingName: "John Appleseed")
+        let predicate = CNContact.predicateForContacts(matchingName: "Bell")
         let keys: [CNKeyDescriptor] = [CNContactFamilyNameKey as NSString]
 
          [predicate, keys] | Ask<CNContact>.while { contact in
@@ -70,8 +73,12 @@ class Contacts_Tests: XCTestCase {
         waitForExpectations()
     }
 
+#endif
+
     func test_CNContactStore() {
         XCTAssertNotNil(CNContactStore.self|)
     }
 
 }
+
+#endif

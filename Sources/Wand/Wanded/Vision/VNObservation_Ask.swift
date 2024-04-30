@@ -21,6 +21,9 @@
 /// Created by Alex Kozin
 ///
 
+#if canImport(Vision)
+import Vision
+
 import CoreMedia.CMSampleBuffer
 import Vision.VNObservation
 
@@ -45,7 +48,7 @@ protocol VisionObservationAsking: Asking, Wanded {
 
 }
 
-@available(macOS 11.0, iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, tvOS 14.0, *)
 public
 extension VisionObservationAsking {
 
@@ -70,18 +73,30 @@ extension VisionObservationAsking {
         if let handler: VNImageRequestHandler = wand.get() {
             perform(handler)
         } else {
-            //Otherwise wait for buffer
-            wand | { (buffer: CMSampleBuffer) in
 
-                let request = VNImageRequestHandler(cmSampleBuffer: buffer)
-                perform(request)
-            }
+            
+            #if !os(visionOS)
+
+                if #available(tvOS 17.0, *) {
+
+                    //Otherwise wait for buffer
+                    wand | { (buffer: CMSampleBuffer) in
+
+                        let request = VNImageRequestHandler(cmSampleBuffer: buffer)
+                        perform(request)
+                    }
+
+                } else {
+                    //TODO: Fallback on earlier versions
+                }
+
+            #endif
         }
     }
 
 }
 
-@available(macOS 11.0, iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, tvOS 14.0, *)
 extension VNFaceObservation: VisionObservationAsking {
 
     public
@@ -89,7 +104,7 @@ extension VNFaceObservation: VisionObservationAsking {
 
 }
 
-@available(macOS 11.0, iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, tvOS 14.0, *)
 extension VNBarcodeObservation: VisionObservationAsking {
 
     public
@@ -97,7 +112,7 @@ extension VNBarcodeObservation: VisionObservationAsking {
 
 }
 
-@available(macOS 11.0, iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, tvOS 14.0, *)
 extension VNHumanHandPoseObservation: VisionObservationAsking {
 
     public
@@ -111,7 +126,7 @@ extension VNHumanHandPoseObservation: VisionObservationAsking {
 
 }
 
-@available(macOS 11.0, iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, tvOS 14.0, *)
 extension VNHumanBodyPoseObservation: VisionObservationAsking {
 
     public
@@ -119,10 +134,12 @@ extension VNHumanBodyPoseObservation: VisionObservationAsking {
 
 }
 
-@available(macOS 11.0, iOS 14.0, *)
+@available(macOS 11.0, iOS 14.0, tvOS 14.0, *)
 extension VNClassificationObservation: VisionObservationAsking {
 
     public
     typealias Request = VNClassifyImageRequest
 
 }
+
+#endif
