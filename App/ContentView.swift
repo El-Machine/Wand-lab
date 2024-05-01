@@ -46,7 +46,8 @@
 #endif
 
 import SwiftUI
-//import Wand
+import Wand
+import Wand_Tools
 
 @available(tvOS 13, watchOS 6, *)
 struct ContentView: View {
@@ -77,12 +78,12 @@ struct ContentView: View {
 //
 //            } //|
 //
-//            //3. One location
-//            .one { (c: CLLocation) in
-//
-//                print("3. \(c)")
-//
-//            } |
+            //3. One location
+            |.one { (c: CLLocation) in
+
+                print("3. \(c)")
+
+            } //|
 //
 //            //4.1 One status
 //            { (s: CLAuthorizationStatus) in
