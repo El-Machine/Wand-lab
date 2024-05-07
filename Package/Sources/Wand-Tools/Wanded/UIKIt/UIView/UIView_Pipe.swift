@@ -18,9 +18,11 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
-#if canImport(UIKit)
+#if !os(watchOS) && canImport(UIKit)
+
 import UIKit
 import Wand
+
 
 //UIView
 public

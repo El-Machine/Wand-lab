@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "http://github.com/El-Machine/Wand.git",
       "state" : {
-        "revision" : "cc7e0b5115a963118fca66be24ee429d78e76157",
-        "version" : "0.1.6"
+        "revision" : "873c51093c873912aca97cf160249f0035f6b7b5",
+        "version" : "0.1.8"
       }
     }
   ],

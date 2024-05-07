@@ -18,8 +18,9 @@
 /// Created by Alex Kozin
 /// 2020 El Machine
 
+
+#if !os(macOS) && !os(tvOS)
 import Wand
-import Wand_Tools
 import XCTest
 
 class Collections_Tests: XCTestCase {
@@ -59,3 +60,5 @@ class Collections_Tests: XCTestCase {
     }
 
 }
+
+#endif

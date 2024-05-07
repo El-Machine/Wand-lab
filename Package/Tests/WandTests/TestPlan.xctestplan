@@ -1,8 +1,8 @@
 {
   "configurations" : [
     {
-      "id" : "738A3088-B67E-401C-BFC1-D5E393C715FF",
-      "name" : "Configuration 1",
+      "id" : "25DEE989-85E9-4532-9272-AF99C59E8945",
+      "name" : "Test Scheme Action",
       "options" : {
 
       }
@@ -16,6 +16,7 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:",
         "identifier" : "WandTests",

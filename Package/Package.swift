@@ -34,7 +34,7 @@ let package = Package(
             targets: ["Wand-Tools"]),
     ],
     dependencies: [
-        .package(url: "http://github.com/El-Machine/Wand.git", from: "0.1.6")
+        .package(url: "http://github.com/El-Machine/Wand.git", from: "0.1.8")
     ],
     targets: [
         .target(
@@ -44,9 +44,6 @@ let package = Package(
             ]),
         .testTarget(
             name: "WandTests",
-            dependencies: ["Wand-Tools"]),
-        .testTarget(
-            name: "WatchPlayTests",
             dependencies: ["Wand-Tools"]),
     ]
 )
