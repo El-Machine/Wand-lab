@@ -16,19 +16,19 @@
 /// limitations under the License.
 ///
 
-#if canImport(RealityKit) || !os(visionOS)
-import RealityKit
-
-import Wand
-
-@available(iOS 13.0, *)
-extension ARView: Obtain {
-
-    public 
-    static func obtain(by wand: Wand?) -> Self {
-        Self()
-    }
-
-}
-
-#endif
+//#if canImport(RealityKit) || !os(visionOS)
+//import RealityKit
+//
+//import Wand
+//
+//@available(iOS 13.0, *)
+//extension ARView: Obtain {
+//
+//    public 
+//    static func obtain(by wand: Wand?) -> Self {
+//        Self()
+//    }
+//
+//}
+//
+//#endif
