@@ -1,4 +1,5 @@
 {
+  "originHash" : "2abf789e655997cd5b696bbd0c293bb2d8d02870ef655530085c389e2d83db73",
   "pins" : [
     {
       "identity" : "wand",
@@ -10,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
