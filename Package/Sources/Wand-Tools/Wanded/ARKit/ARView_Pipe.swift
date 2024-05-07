@@ -16,7 +16,7 @@
 /// limitations under the License.
 ///
 
-#if canImport(RealityKit)
+#if canImport(RealityKit) || !os(visionOS)
 import RealityKit
 
 import Wand

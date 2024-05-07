@@ -415,9 +415,9 @@
 			projectRoot = "";
 			targets = (
 				6162624B28BC8E2B00D63EA5 /* Play */,
+				618D53D02BE3C5120098DB6F /* Tests */,
 				613966142BE0F4EF004C18A3 /* WatchPlay */,
 				613966472BE0F87A004C18A3 /* WatchPlayTests */,
-				618D53D02BE3C5120098DB6F /* Tests */,
 			);
 		};
 /* End PBXProject section */
